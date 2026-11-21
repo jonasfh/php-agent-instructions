@@ -4,7 +4,7 @@
 
 This repository provides standardized development guidelines, architectural conventions, tooling standards, and testing practices for PHP projects across the ecosystem.
 
-It builds upon the core standards defined in [common-agent-instructions](https://github.com/jonasfh/common-agent-instructions).
+It builds upon the core standards and multi-agent roles defined in [common-agent-instructions](https://github.com/jonasfh/common-agent-instructions).
 
 ## Modular Sub-guidelines
 
@@ -14,6 +14,10 @@ It builds upon the core standards defined in [common-agent-instructions](https:/
 - 📐 **[PHP Architecture](file:///./PHP_ARCHITECTURE.md)**: Modular design, thin controllers, domain services, universal database timestamp rules, and safe query execution.
 - 🖥️ **[PHP Server & Database](file:///./PHP_SERVER_AND_DATABASE.md)**: Dev-server execution in Apache, error logging inspection, database connectivity, and CLI tools.
 
+## Progressive Skills (`skills/`)
+- `php-testing-and-lint`: Fast local feedback loop (`composer lint:fix`, `composer test:changed`) for PHP **Implementers**, and full verification (`composer lint`, `composer test`) for **Verifiers**.
+- `php-migration-and-db`: Database table timestamps (`created_at`, `modified_at`), prepared queries, and integration test checklist.
+
 ## Using this Submodule in Consuming Projects
 
 Add this repository as a git submodule in your project under `.agents/php-agent-instructions/`:
@@ -22,4 +26,4 @@ Add this repository as a git submodule in your project under `.agents/php-agent-
 git submodule add https://github.com/jonasfh/php-agent-instructions.git .agents/php-agent-instructions
 ```
 
-In the consuming project's `AGENTS.md`, link to these modular sub-guidelines alongside the general guidelines in `.agents/common-agent-instructions/`.
+In the consuming project's `AGENTS.md`, link to these modular sub-guidelines alongside `.agents/common-agent-instructions/`, and register `php-agent-instructions/skills` in `.agents/skills.json`.
